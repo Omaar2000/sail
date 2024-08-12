@@ -1,0 +1,111 @@
+body {
+  /* font-family: inter; */
+  color: #fff;
+  /* padding-inline: 10rem; */
+}
+
+@font-face {
+  font-family: "Whyte Inktrap";
+  src: url("../../fonts/WhyteInktrap-Regular.woff") format("woff");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Whyte Inktrap";
+  src: url("../../fonts/WhyteInktrap-Medium.woff") format("woff");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Whyte Inktrap";
+  src: url("../../fonts/WhyteInktrap-Bold.woff") format("woff");
+  font-weight: 700;
+}
+
+.H1 {
+  font-family: "Whyte Inktrap";
+  font-weight: 600;
+}
+
+/* @keyframes sail {
+  0% {
+    transform: translateX(0);
+    transform: translateY(-50%);
+  }
+  33% {
+    transform: translateX(25%);
+    transform: translateY(75%);
+  }
+  66% {
+    transform: translateY(-150%);
+    transform: translateX(75%);
+  }
+  100% {
+    transform: translateY(50%);
+    transform: translateX(100%);
+  }
+}
+.how-card:hover {
+  animation: sail 0.8s ease-in-out;
+} */
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.navbar {
+  height: 6em;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(60deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin 2s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+@keyframes fly {
+  0% {
+    transform: scale(0.5) rotate(-15deg);
+  }
+  5% {
+    transform: scale(0.6);
+  }
+  20% {
+    transform: scale(0.65);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(150vw) scale(1);
+  }
+}
+
+.fly {
+  /* transform: rotateX(180deg); */
+  animation: fly 2s forwards;
+}
+
+html {
+  scroll-behavior: smooth;
+}
