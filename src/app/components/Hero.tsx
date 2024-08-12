@@ -1,8 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const Hero = () => {
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { opacity: 0, x: -100, y: 0 },
     visible: (custom: number) => ({
       opacity: 1,
@@ -12,18 +12,18 @@ const Hero = () => {
     }),
     animate: {
       rotateX: [-5, 0, 5, 10],
-      // rotateY: [0, 5, -10, 0],
       rotateY: [-5, 0, 5, 10],
       rotateZ: [2, 5, -5, -2],
       transition: {
-        duration: 6, // Adjust duration for the speed of the animation
+        duration: 6, // Duration for the speed of the animation
         ease: "easeInOut",
         repeat: Infinity,
         repeatType: "mirror", // Makes the animation reverse after each cycle
       },
     },
   };
-  const imageVariants2 = {
+
+  const imageVariants2: Variants = {
     hidden: { opacity: 0, x: -100, y: 50 },
     visible: (custom: number) => ({
       opacity: 1,
@@ -44,7 +44,7 @@ const Hero = () => {
       },
     },
   };
-  const imageVariants3 = {
+  const imageVariants3: Variants = {
     hidden: { opacity: 0, x: -100, y: -50 },
     visible: (custom: number) => ({
       opacity: 1,
