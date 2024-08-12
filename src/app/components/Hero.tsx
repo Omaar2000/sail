@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Hero = () => {
   const imageVariants = {
     hidden: { opacity: 0, x: -100, y: 0 },
-    visible: (custom) => ({
+    visible: (custom: number) => ({
       opacity: 1,
       x: 0,
       y: 0,
@@ -25,7 +25,7 @@ const Hero = () => {
   };
   const imageVariants2 = {
     hidden: { opacity: 0, x: -100, y: 50 },
-    visible: (custom) => ({
+    visible: (custom: number) => ({
       opacity: 1,
       x: 0,
       y: 0,
@@ -46,7 +46,7 @@ const Hero = () => {
   };
   const imageVariants3 = {
     hidden: { opacity: 0, x: -100, y: -50 },
-    visible: (custom) => ({
+    visible: (custom: number) => ({
       opacity: 1,
       x: 0,
       y: 0,
