@@ -1,20 +1,28 @@
 "use client";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import useStore from "../../../useUserStore";
 
 const Join = () => {
+  const { t } = useTranslation();
+  const { language } = useStore();
   return (
     <div
       id="join"
-      className="px-[3rem] py-[3rem] mb-10 justify-center items-center gap-20 flex flex-col lg:flex-row m-4 rounded-3xl bg-gradient-to-b from-[#006699] to-[#09415D]"
+      className="overflow-hidden px-[3rem] py-[3rem] mb-10 justify-center items-center gap-20 flex flex-col lg:flex-row m-4 rounded-3xl bg-gradient-to-b from-[#006699] to-[#09415D]"
     >
-      <div className="relative flex justify-center items-end flex-1">
+      <div className="relative flex justify-center items-end flex-1 ">
         <motion.img
           src="../join2.png"
           alt=""
-          className="-mr-44 mt-4 z-10 w-[16rem] md:w-[20rem] lg:w-[20rem] rounded-3xl"
+          className={`${
+            language === "en"
+              ? "-mr-44"
+              : "absolute mr-[12rem] w-[11.5rem] sm:w-[15rem]"
+          } mt-4 z-10 w-[16rem] md:w-[20rem] lg:w-[20rem] rounded-3xl`}
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: false, amount: 0.3 }}
           // transition={{ duration: 0.6, ease: "easeOut" }}
         />
         <motion.img
@@ -23,7 +31,7 @@ const Join = () => {
           className="mb-8 w-[22rem] md:w-[24rem] lg:w-[22rem]"
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: false, amount: 0.3 }}
           // transition={{ duration: 0.6, ease: "easeOut" }}
         />
       </div>
@@ -35,7 +43,7 @@ const Join = () => {
           viewport={{ once: false, amount: 0.5 }}
           // transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Join us as a captain
+          {t("Join us as a captain")}
         </motion.p>
         <div className="mt-10 flex flex-col justify-center">
           <motion.p
@@ -45,19 +53,19 @@ const Join = () => {
             viewport={{ once: false, amount: 0.5 }}
             // transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Join sail captain in simple 4 steps:
+            {t("Join sail captain in simple 4 steps:")}
           </motion.p>
           <motion.ul
-            className="list-inside list-decimal"
+            className="list-inside list-none"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             // transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <li>Install sail captain</li>
-            <li>Sign up</li>
-            <li>Share some documents</li>
-            <li>Get your account approved</li>
+            <li>{t("Install sail captain")}</li>
+            <li>{t("Sign up")}</li>
+            <li>{t("Share some documents")}</li>
+            <li>{t("Get your account approved")}</li>
           </motion.ul>
           <div className="flex gap-2 mt-5">
             <a href="/">

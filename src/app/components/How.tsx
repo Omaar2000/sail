@@ -1,11 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import useStore from "../../../useUserStore";
+// import { useStore } from "zustand";
 
 const How = () => {
+  const { t } = useTranslation();
+  const { language } = useStore();
   return (
     <div
       id="how"
-      className="px-[2rem] py-[2rem] lg:px-[4rem] lg:py-[3rem] flex flex-col-reverse justify-center items-end sm:items-center md:items-stretch md:flex-row m-4 rounded-3xl bg-gradient-to-b from-[#006699] to-[#09415D] overflow-hidden"
+      className={`px-[2rem] py-[2rem] lg:px-[4rem] lg:py-[3rem] flex flex-col-reverse justify-center ${
+        language === "en" ? "items-center" : "items-start"
+      } sm:items-center md:items-stretch md:flex-row m-4 rounded-3xl bg-gradient-to-b from-[#006699] to-[#09415D] gap-2 xl:gap-20 overflow-hidden`}
     >
       <motion.div
         className="relative sm:min-w-1/2 max-w-[33rem]"
@@ -37,31 +44,34 @@ const How = () => {
       </motion.div>
       <div className="flex flex-col gap-10">
         <p className="text-2xl lg:text-4xl font-semibold ms-10 text-[#EFEFF8]">
-          How SAIL works?
+          {t("How SAIL works?")}
         </p>
         <div className="flex flex-1 gap-4">
           <img src="../timeline.svg" className="h-[90%] mt-3" alt="" />
           <div className="grid grid-cols-[auto,1fr] place-content-between gap-y-10">
             <p className="p-2 text-sm lg:text-xl text-[#EFEFF8] font-semibold rounded-s-lg bg-[#09415D]">
-              Development
+              {t("Development")}
             </p>
             <p className="p-2 text-[10px] md:text-[12px] lg:text-[14px] xl:text-[20px] text-[#EFEFF8] rounded-e-lg bg-[#09415D]">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
+              {t(
+                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+              )}
             </p>
             <p className="p-2 text-sm lg:text-xl text-[#EFEFF8] font-semibold rounded-s-lg ">
-              Development
+              {t("Work Team")}
             </p>
             <p className="p-2 text-[10px] md:text-[12px] lg:text-[14px] xl:text-[20px] text-[#EFEFF8] rounded-e-lg ">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
+              {t(
+                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+              )}
             </p>
             <p className="p-2 text-sm lg:text-xl text-[#EFEFF8] font-semibold rounded-s-lg ">
-              Development
+              {t("Environment")}
             </p>
             <p className="p-2 text-[10px] md:text-[12px] lg:text-[14px] xl:text-[20px] text-[#EFEFF8] rounded-e-lg ">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
+              {t(
+                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+              )}
             </p>
           </div>
         </div>

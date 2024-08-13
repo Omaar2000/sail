@@ -1,7 +1,11 @@
 "use client";
 import { motion, Variants } from "framer-motion";
+import useStore from "../../../useUserStore";
+import { useTranslation } from "react-i18next";
+// import { useStore } from "zustand";
 
 const Hero = () => {
+  const { t } = useTranslation();
   const imageVariants: Variants = {
     hidden: { opacity: 0, x: -100, y: 0 },
     visible: (custom: number) => ({
@@ -65,6 +69,8 @@ const Hero = () => {
     },
   };
 
+  const { language, toggleLanguage } = useStore();
+
   return (
     <div
       id="home"
@@ -78,36 +84,41 @@ const Hero = () => {
         />
         <div className="hidden justify-around gap-4 lg:flex">
           <a href="#home" className="hover:text-[#cfeaf8]">
-            Home
+            {t("Home")}
           </a>
           <a href="#about" className="hover:text-[#cfeaf8]">
-            About Us
+            {t("About Us")}
           </a>
           <a href="#how" className="hover:text-[#cfeaf8]">
-            How It Works
+            {t("How It Works")}
           </a>
           <a href="#orders" className="hover:text-[#cfeaf8]">
-            Steps
+            {t("Steps")}
           </a>
           <a href="#join" className="hover:text-[#cfeaf8]">
-            Join
+            {t("Join")}
           </a>
           <a href="#footer" className="hover:text-[#cfeaf8]">
-            Contact Us
+            {t("Contact Us")}
           </a>
         </div>
-        <button className="btn bg-white py-2 px-3 text-[#006699] hover:scale-110 transition-all duration-200 rounded font-[600]">
-          Download app
+        <button
+          onClick={toggleLanguage}
+          className="btn bg-white py-0.5 px-2 text-[#006699] hover:scale-110 transition-all duration-200 rounded font-[600]"
+        >
+          {language === "en" ? "العربية" : "English"}
         </button>
       </div>
       <div className="flex flex-col justify-center items-center">
         <p className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[52px] text-center px-1 sm:px-10 md:px-14 text-bold my-8 H1">
-          Download Sail now, Explore the Seas Unforgettable Ship Journeys Await
+          {t(
+            "Download Sail now, Explore the Seas Unforgettable Ship Journeys Await"
+          )}
         </p>
         <p className="text-[rgb(255,255,255,0.7)] text-[10px] sm:text-[12px] md:text-[14px] text-center mb-8 px-8 md:px-0 md:w-[30rem]">
-          Sail is the first boat reservation application in the world which
-          enables you to carry out your marine adventures and recreational trips
-          with your friends and family with ease, safety, and affordable prices.
+          {t(
+            "Sail is the first boat reservation application in the world which enables you to carry out your marine adventures and recreational trips with your friends and family with ease, safety, and affordable prices."
+          )}
         </p>
         <div className="flex gap-2">
           <a href="/">
@@ -244,7 +255,6 @@ export default Hero;
   </div>
 </div> */
 }
-
 {
   /* <svg
           width="173"

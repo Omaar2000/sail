@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 type ImageText = {
   src: string;
@@ -30,6 +31,7 @@ const OrderStep: React.FC<{ title: string; desc: string }> = ({
   title,
   desc,
 }) => {
+  const { t } = useTranslation();
   return (
     <motion.div
       className="h-screen flex flex-col items-start justify-center gap-5 p-[2rem]"
@@ -39,8 +41,8 @@ const OrderStep: React.FC<{ title: string; desc: string }> = ({
       // transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="bg-blue-200 p-[4rem] rounded-2xl">
-        <p className="text-xl text-[#006699] font-semibold my-3">{title}</p>
-        <p className="text-[#2B2B53] mb-3 text-lg">{desc}</p>
+        <p className="text-xl text-[#006699] font-semibold my-3">{t(title)}</p>
+        <p className="text-[#2B2B53] mb-3 text-lg">{t(desc)}</p>
         {title === "Download the app" && (
           <div className="flex gap-2">
             <a href="/">
@@ -72,6 +74,7 @@ const ImageTextSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const partRefs = useRef<HTMLDivElement[]>([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -109,7 +112,7 @@ const ImageTextSection: React.FC = () => {
 
   return (
     <div id="orders">
-      <div className="lg:hidden">
+      <div className="lg:hidden overflow-hidden">
         <motion.h2
           className="text-2xl font-semibold text-center mb-3 text-[#006699]"
           initial={{ opacity: 0, y: 20 }}
@@ -117,7 +120,7 @@ const ImageTextSection: React.FC = () => {
           viewport={{ once: false, amount: 0.5 }}
           // transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Order Steps
+          {t("Order Steps")}
         </motion.h2>
         <div className="relative flex justify-center items-center">
           <div className="flex flex-col items-center justify-center gap-5 p-[2rem]">
@@ -129,15 +132,12 @@ const ImageTextSection: React.FC = () => {
               // transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <p className="text-xl text-[#006699] text-center font-semibold my-3">
-                Download the app
+                {t("Download the app")}
               </p>
               <p className="text-[#2B2B53] text-[10px] sm:text-[14px] md:text-[16px] px-6 md:px-16 text-center">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                Our eyes are subjected to extreme demands every single day. They
-                have a lot to cope with and compensate for: too much or too
-                little light (UV radiation), dry air, nicotine, or extreme
-                temperatures. Long car journeys,
+                {t(
+                  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+                )}{" "}
               </p>
             </motion.div>
             <motion.div
@@ -178,15 +178,12 @@ const ImageTextSection: React.FC = () => {
               // transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <p className="text-xl text-[#006699] text-center font-semibold my-3">
-                Browse services
+                {t("Browse services")}
               </p>
               <p className="text-[#2B2B53] mb-3 text-[10px] sm:text-[14px] md:text-[16px] px-6 md:px-16 text-center">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                Our eyes are subjected to extreme demands every single day. They
-                have a lot to cope with and compensate for: too much or too
-                little light (UV radiation), dry air, nicotine, or extreme
-                temperatures. Long car journeys,
+                {t(
+                  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+                )}
               </p>
             </motion.div>
             <motion.img
@@ -207,15 +204,12 @@ const ImageTextSection: React.FC = () => {
               // transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <p className="text-xl text-[#006699] text-center font-semibold my-3">
-                Choose the service provider that suits you
+                {t("Choose the service provider that suits you")}
               </p>
               <p className="text-[#2B2B53] mb-3 text-[10px] sm:text-[14px] md:text-[16px] px-6 md:px-16 text-center">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                Our eyes are subjected to extreme demands every single day. They
-                have a lot to cope with and compensate for: too much or too
-                little light (UV radiation), dry air, nicotine, or extreme
-                temperatures. Long car journeys,
+                {t(
+                  "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+                )}
               </p>
             </motion.div>
             <motion.img
@@ -233,7 +227,7 @@ const ImageTextSection: React.FC = () => {
       </div>
       <div className="hidden lg:block">
         <h2 className="text-2xl font-semibold text-center mb-3 text-[#006699]">
-          Order Steps
+          {t("Order Steps")}
         </h2>
         <div className="relative flex">
           <div className="flex-1 pb-[10rem]">

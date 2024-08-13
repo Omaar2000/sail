@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import "../App.css";
+import { useTranslation } from "react-i18next";
 
 const Card: React.FC<{ imageURL: string; title: string }> = ({
   imageURL,
@@ -28,29 +29,28 @@ const Card: React.FC<{ imageURL: string; title: string }> = ({
 };
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <div
       id="about"
       className="px-[5rem] flex flex-col justify-center items-center mt-[5rem] scroll-smooth"
     >
       <h2 className="text-2xl font-semibold text-center mb-3 text-[#006699]">
-        Who are we
+        {t("Who are we")}
       </h2>
       <p className="text-[#2B2B53] md:w-2/3 text-[12px] md:text-[16px] text-center mb-3">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. Our eyes are
-        subjected to extreme demands every single day. They have a lot to cope
-        with and compensate for: too much or too little light (UV radiation),
-        dry air, nicotine, or extreme temperatures. Long car journeys,
+        {t(
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Our eyes are subjected to extreme demands every single day. They have a lot to cope with and compensate for: too much or too little light (UV radiation), dry air, nicotine, or extreme temperatures. Long car journeys,"
+        )}
       </p>
       <div className="grid text-black gap-y-16 gap-5 md:grid-cols-4 grid-cols-2 mt-6 ">
         {[
-          { imageURL: "../../../Parachute.png", title: "Parachute" },
-          { imageURL: "../../../Banana.png", title: "Banana Boat" },
-          { imageURL: "../../../Fishing.png", title: "Fishing Trips" },
-          { imageURL: "../../../JetSkii.png", title: "Jet Ski Trips" },
-          { imageURL: "../../../small.png", title: "Kayak" },
-          { imageURL: "../../../outing.png", title: "Outing Trips" },
+          { imageURL: "../../../Parachute.png", title: t("Parachute") },
+          { imageURL: "../../../Banana.png", title: t("Banana Boat") },
+          { imageURL: "../../../Fishing.png", title: t("Fishing Trips") },
+          { imageURL: "../../../JetSkii.png", title: t("Jet Ski Trips") },
+          { imageURL: "../../../small.png", title: t("Kayak") },
+          { imageURL: "../../../outing.png", title: t("Outing Trips") },
         ].map((card, index) =>
           card.title === "Kayak" ? (
             <motion.div

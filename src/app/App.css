@@ -109,3 +109,16 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* In your CSS file or inside a <style> tag */
+
+#custom-select {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path fill="%23ffffff" d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 32px;
+}
+
+html[dir="rtl"] #custom-select {
+  background-position: left 10px center; /* For RTL languages */
+}
