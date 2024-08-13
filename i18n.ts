@@ -1,4 +1,3 @@
-"use client";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import translationEN from "./src/app/locales/translationEN.json";
@@ -13,13 +12,23 @@ const resources = {
   },
 };
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: localStorage.getItem("language") || "en", // default language
-  fallbackLng: localStorage.getItem("language") || "en",
-  interpolation: {
-    escapeValue: false, // react already safes from xss
-  },
-});
+const initI18n = () => {
+  let lng = "en";
+
+  if (typeof window !== "undefined") {
+    lng = localStorage.getItem("language") || "en";
+  }
+
+  i18n.use(initReactI18next).init({
+    resources,
+    lng: lng, // default language
+    fallbackLng: lng,
+    interpolation: {
+      escapeValue: false, // react already safes from xss
+    },
+  });
+};
+
+initI18n();
 
 export default i18n;

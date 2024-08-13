@@ -1,4 +1,3 @@
-"use client";
 import { create } from "zustand";
 import i18n from "./i18n";
 
@@ -10,8 +9,13 @@ interface LanguageStore {
 
 // Create the Zustand store
 const useStore = create<LanguageStore>((set, get) => ({
-  language: (localStorage.getItem("language") as "en" | "ar") || "en",
+  language:
+    (typeof window !== "undefined" &&
+      (localStorage.getItem("language") as "en" | "ar")) ||
+    "en",
   toggleLanguage: () => {
+    if (typeof window === "undefined") return; // Ensure this runs only on client side
+
     const currentLanguage = get().language;
     const newLanguage = currentLanguage === "en" ? "ar" : "en";
 
